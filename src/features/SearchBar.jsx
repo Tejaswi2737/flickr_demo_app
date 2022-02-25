@@ -34,10 +34,17 @@ const SearchBarStyled = styled.input(() => ({
     },
 }));
 
-function SearchBar({ value, setvalue }) {
+function SearchBar({ value, setvalue, setsearchImages }) {
+    const handleSearch = (e) => {
+        if (e.key === 'Enter') {
+            setsearchImages(true);
+        }
+    };
+
     return (
       <SearchBarStyled
         onChange={(e) => setvalue(e.target.value)}
+        onKeyPress={(e) => handleSearch(e)}
         value={value}
       />
     );
@@ -48,4 +55,5 @@ export default SearchBar;
 SearchBar.propTypes = {
     value: propTypes.string.isRequired,
     setvalue: propTypes.func.isRequired,
+    setsearchImages: propTypes.func.isRequired,
 };

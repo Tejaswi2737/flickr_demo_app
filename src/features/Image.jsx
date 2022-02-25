@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-const ImageTag = styled.img`
+const StyledImage = styled.img`
     :hover {
         transform: scale(0.9); 
         transition: 0.5s
@@ -17,7 +17,7 @@ const ImageTag = styled.img`
 function Image({ imgSrc }) {
     return (
         <a href={imgSrc} alt="" target="_blank" rel="noreferrer">
-            <ImageTag src={imgSrc} alt="imgUrl" />
+            <StyledImage src={imgSrc} alt="imgUrl" />
         </a>
     );
 }

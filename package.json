@@ -11,7 +11,9 @@
     "test": "jest",
     "lint": "eslint",
     "lint:fix": "eslint --fix --ext .js,.jsx .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -19,6 +21,7 @@
     ]
   },
   "dependencies": {
+    "@storybook/react": "^6.4.19",
     "axios": "^0.26.0",
     "babel-jest": "^27.5.1",
     "husky": "^7.0.4",
@@ -42,6 +45,12 @@
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.6.0",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-interactions": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/addon-viewport": "^6.4.19",
+    "@storybook/testing-library": "^0.0.9",
     "@svgr/webpack": "^4.3.2",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",

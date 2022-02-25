@@ -48,7 +48,7 @@ export const LINE_HEIGHTS = {
 
 export const FONT_WEIGHTS = {
     bold: '700',
-    semiBold: '600',
+    semiBold: '500',
     regular: '400',
 };
 

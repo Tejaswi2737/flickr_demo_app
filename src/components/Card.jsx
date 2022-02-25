@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable react/jsx-indent */
 import propTypes, { string } from 'prop-types';
@@ -15,7 +16,7 @@ const WIDTH = {
     MOBILE: '100%',
 };
 
-const StyledCard = styled.div(() => ({
+const StyledImageCard = styled.div(() => ({
     width: WIDTH[useDeviceType()],
     boxShadow: '0 4px 10px 0 rgba(0,0,0,0.1)',
     transition: '0.3s',
@@ -26,18 +27,32 @@ const StyledCard = styled.div(() => ({
 
 const Card = (props) => {
     const {
-        imgSrc, title, dateTaken, tags, setvalue,
+        imgSrc,
+        title,
+        dateTaken,
+        tags,
+        setvalue,
+        setsearchImages,
     } = props;
 
+    const handleSearchTag = (content) => {
+        setvalue(content);
+        setsearchImages(true);
+    };
+
     return (
-        <StyledCard>
+        <StyledImageCard>
             <Image imgSrc={imgSrc} />
             <Text content={title} />
-            <Text content={dateTaken} />
+            <Text content={dateTaken} weight="regular" color="lightest" />
             {tags.map((tag) => (
-                <Button key={tag} content={tag} setvalue={setvalue} />
+                <Button
+                  key={tag}
+                  content={tag}
+                  handleClick={handleSearchTag}
+                />
             ))}
-        </StyledCard>
+        </StyledImageCard>
     );
 };
 
@@ -49,4 +64,5 @@ Card.propTypes = {
     dateTaken: propTypes.string.isRequired,
     tags: propTypes.arrayOf(string).isRequired,
     setvalue: propTypes.func.isRequired,
+    setsearchImages: propTypes.func.isRequired,
 };

@@ -1,29 +1,36 @@
+/* eslint-disable react/jsx-indent-props */
+/* eslint-disable react/jsx-indent */
 import propTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import {
-    BACKGROUND_COLOR, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS, LINE_HEIGHTS,
+    BACKGROUND_COLOR, BORDER_RADIUS,
 } from '../theme';
+import Text from './Text';
 
-const TextStyled = styled.div(() => ({
-    fontWeight: FONT_WEIGHTS.semiBold,
-    fontSize: FONT_SIZES.mediumMobile,
-    lineHeight: LINE_HEIGHTS.mediumMobile,
+const StyledButton = styled.div(() => ({
     backgroundColor: BACKGROUND_COLOR.green,
     display: 'inline-flex',
     padding: '5px',
     borderRadius: BORDER_RADIUS.allLess,
     margin: '3px',
     cursor: 'pointer',
+    overflow: 'hidden',
 }));
 
-function Button({ content, setvalue }) {
-    return (<TextStyled onClick={() => { setvalue(content); }}>{content}</TextStyled>);
+function Button({ content, handleClick }) {
+    return (
+        <StyledButton
+            onClick={() => handleClick(content)}
+        >
+            <Text content={content} color="darker" weight="semiBold" />
+        </StyledButton>
+    );
 }
 
 export default React.memo(Button);
 
 Button.propTypes = {
     content: propTypes.string.isRequired,
-    setvalue: propTypes.func.isRequired,
+    handleClick: propTypes.func.isRequired,
 };

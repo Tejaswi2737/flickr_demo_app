@@ -21,6 +21,7 @@ const AppStyles = styled.div(() => ({
   minHeight: '100vh',
   height: 'fit-content',
   maxWidth: '100vw',
+  overflowX: 'hidden',
 }));
 
 const override = css`
@@ -36,52 +37,57 @@ const override = css`
 `;
 
 function App() {
-  const [value, setvalue] = useState('dog');
+  const [value, setvalue] = useState('himalayas');
+  const [searchImages, setsearchImages] = useState(true);
   const [images, setimages] = useState([]);
+  const CORS_URL = 'https://getByCors.herokuapp.com/';
+  const BASE_URL = 'https://api.flickr.com/services/feeds/photos_public.gne?';
 
   useEffect(() => {
     setimages([]);
-    const CORS_URL = 'https://getByCors.herokuapp.com/';
-    const BASE_URL = 'https://api.flickr.com/services/feeds/photos_public.gne?';
-
-    axios.get(`${CORS_URL}${BASE_URL}tags=${value}&format=json&nojsoncallback=true`).then((response) => {
-      setimages(response.data);
-    });
-  }, [value]);
+    if (searchImages) {
+      axios.get(`${CORS_URL}${BASE_URL}tags=${value}&format=json&nojsoncallback=true`).then((response) => {
+        setimages(response.data);
+      });
+    }
+    setsearchImages(false);
+  }, [searchImages]);
 
     return (
       <AppStyles>
-        <SearchBar value={value} setvalue={setvalue} />
+        <SearchBar
+          value={value}
+          setvalue={setvalue}
+          setsearchImages={setsearchImages}
+        />
         {images && images.items?.length > 0 ? (
           <CardStackStyles>
             { images.items.map((item) => {
-            const {
-                media,
-                // eslint-disable-next-line camelcase
-                date_taken,
-                author,
-                tags,
-            } = item;
+                const {
+                    media,
+                    date_taken: dateTaken,
+                    author,
+                    tags,
+                } = item;
 
-            return (
-              <Card
-                imgSrc={media.m}
-                key={media.m}
-                title={formatAuthorName(author)}
-                // eslint-disable-next-line camelcase
-                dateTaken={calenderConfig(date_taken)}
-                tags={getTags(tags)}
-                setvalue={setvalue}
-              />
-            );
-        })}
+                return (
+                  <Card
+                    imgSrc={media.m}
+                    key={media.m}
+                    title={formatAuthorName(author)}
+                    dateTaken={calenderConfig(dateTaken)}
+                    tags={getTags(tags)}
+                    setvalue={setvalue}
+                    setsearchImages={setsearchImages}
+                  />
+                );
+            })}
           </CardStackStyles>
         ) : (
           <BeatLoader color={COLORS.light} loading css={override} />
         )}
       </AppStyles>
-
-);
+  );
 }
 
 export default App;
