@@ -9,6 +9,7 @@
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "lint": "eslint",
     "lint:fix": "eslint --fix --ext .js,.jsx .",
     "prepare": "husky install",
@@ -21,6 +22,7 @@
     ]
   },
   "dependencies": {
+    "@storybook/addon-storyshots": "^6.4.19",
     "@storybook/react": "^6.4.19",
     "axios": "^0.26.0",
     "babel-jest": "^27.5.1",
@@ -73,5 +75,10 @@
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1"
+  },
+  "jest": {
+    "modulePaths": ["/shared/vendor/modules"],
+    "moduleFileExtensions": ["js", "jsx"],
+    "moduleDirectories": ["node_modules", "bower_components", "shared"]
   }
 }

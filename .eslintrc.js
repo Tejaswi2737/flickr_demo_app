@@ -18,8 +18,9 @@ module.exports = {
         'react',
     ],
     globals: {
-        test: true,
+        describe: true,
         expect: true,
+        it: true,
     },
     rules: {
         indent: ['error', 4],

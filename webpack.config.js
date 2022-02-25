@@ -66,10 +66,10 @@ module.exports = function (_env, argv) {
         },
         plugins: [
             isProduction
-      && new MiniCssExtractPlugin({
-          filename: 'assets/css/[name].[contenthash:8].css',
-          chunkFilename: 'assets/css/[name].[contenthash:8].chunk.css',
-      }),
+            && new MiniCssExtractPlugin({
+                filename: 'assets/css/[name].[contenthash:8].css',
+                chunkFilename: 'assets/css/[name].[contenthash:8].chunk.css',
+            }),
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, 'public/index.html'),
                 inject: true,
