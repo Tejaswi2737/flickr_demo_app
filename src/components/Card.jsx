@@ -35,7 +35,7 @@ const Card = (props) => {
             <Text content={title} />
             <Text content={dateTaken} />
             {tags.map((tag) => (
-                <Button content={tag} setvalue={setvalue} />
+                <Button key={tag} content={tag} setvalue={setvalue} />
             ))}
         </StyledCard>
     );

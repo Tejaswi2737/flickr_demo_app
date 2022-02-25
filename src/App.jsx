@@ -66,6 +66,7 @@ function App() {
             return (
               <Card
                 imgSrc={media.m}
+                key={media.m}
                 title={formatAuthorName(author)}
                 // eslint-disable-next-line camelcase
                 dateTaken={calenderConfig(date_taken)}

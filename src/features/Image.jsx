@@ -22,7 +22,7 @@ function Image({ imgSrc }) {
     );
 }
 
-export default Image;
+export default React.memo(Image);
 
 Image.propTypes = {
     imgSrc: propTypes.string.isRequired,

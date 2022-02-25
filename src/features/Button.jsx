@@ -21,7 +21,7 @@ function Button({ content, setvalue }) {
     return (<TextStyled onClick={() => { setvalue(content); }}>{content}</TextStyled>);
 }
 
-export default Button;
+export default React.memo(Button);
 
 Button.propTypes = {
     content: propTypes.string.isRequired,

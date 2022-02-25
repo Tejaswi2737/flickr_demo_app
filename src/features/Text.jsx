@@ -16,7 +16,7 @@ function Text({ content }) {
     return (<TextStyled>{content}</TextStyled>);
 }
 
-export default Text;
+export default React.memo(Text);
 
 Text.propTypes = {
     content: propTypes.string.isRequired,
