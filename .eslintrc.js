@@ -21,9 +21,11 @@ module.exports = {
         describe: true,
         expect: true,
         it: true,
+        beforeEach: true,
     },
     rules: {
         indent: ['error', 4],
         'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+        'react/jsx-props-no-spreading': [0],
     },
 };

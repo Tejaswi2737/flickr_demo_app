@@ -18,5 +18,6 @@ function ButtonTemplate(args) {
 export const DefaultButton = ButtonTemplate.bind({});
 DefaultButton.args = {
     content: 'Button',
-    handleClick: { action: 'clicked' },
+    // eslint-disable-next-line no-alert
+    handleClick: () => alert('clicked'),
 };

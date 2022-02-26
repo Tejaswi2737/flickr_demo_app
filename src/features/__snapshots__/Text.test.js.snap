@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-bdvvtL eiyFLD"
+  color="darkest"
+  height="medium"
+  size="medium"
+>
+  Hello
+</div>
+`;
+
+exports[`renders correctly 2`] = `
+<div
+  className="sc-bdvvtL bcCCPR"
+  color="dark"
+  height="medium"
+  size="medium"
+>
+  Hello
+</div>
+`;
+
+exports[`renders correctly 3`] = `
+<div
+  className="sc-bdvvtL liSZsL"
+  color="dark"
+  height="medium"
+  size="small"
+>
+  Hello
+</div>
+`;

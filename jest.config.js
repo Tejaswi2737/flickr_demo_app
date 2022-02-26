@@ -8,4 +8,5 @@ module.exports = config;
 // Or async function
 module.exports = async () => ({
     verbose: true,
+    testEnvironment: 'jsdom',
 });

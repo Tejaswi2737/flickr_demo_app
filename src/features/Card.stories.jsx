@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 
 import Card from '../components/Card';
@@ -21,6 +22,6 @@ DefaultCard.args = {
     title: 'Image Title',
     dateTaken: '24 Feb 2021',
     tags: ['mountain', 'potrait', 'picture', 'nixon'],
-    setvalue: { action: 'settingValue' },
-    setsearchImages: { action: 'setSearchImages' },
+    setvalue: () => console.log('setting value'),
+    setsearchImages: () => console.log('searching image'),
 };

@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-hKwDye eRTjdz"
+>
+  <a
+    alt=""
+    href="https://live.staticflickr.com/65535/51902520893_a1886b3020_m.jpg"
+    rel="noreferrer"
+    target="_blank"
+  >
+    <img
+      alt="imgUrl"
+      className="sc-dkPtRN kqsQTu"
+      src="https://live.staticflickr.com/65535/51902520893_a1886b3020_m.jpg"
+    />
+  </a>
+  <div
+    className="sc-bdvvtL gOxqRk"
+    color="light"
+    height="medium"
+    size="medium"
+  >
+    Image Title
+  </div>
+  <div
+    className="sc-bdvvtL VPhdF"
+    color="lightest"
+    height="medium"
+    size="medium"
+  >
+    24 Feb 2021
+  </div>
+  <div
+    className="sc-gsDKAQ efWQeV"
+    onClick={[Function]}
+  >
+    <div
+      className="sc-bdvvtL kNTctQ"
+      color="darker"
+      height="medium"
+      size="medium"
+    >
+      mountain
+    </div>
+  </div>
+  <div
+    className="sc-gsDKAQ efWQeV"
+    onClick={[Function]}
+  >
+    <div
+      className="sc-bdvvtL kNTctQ"
+      color="darker"
+      height="medium"
+      size="medium"
+    >
+      potrait
+    </div>
+  </div>
+  <div
+    className="sc-gsDKAQ efWQeV"
+    onClick={[Function]}
+  >
+    <div
+      className="sc-bdvvtL kNTctQ"
+      color="darker"
+      height="medium"
+      size="medium"
+    >
+      picture
+    </div>
+  </div>
+  <div
+    className="sc-gsDKAQ efWQeV"
+    onClick={[Function]}
+  >
+    <div
+      className="sc-bdvvtL kNTctQ"
+      color="darker"
+      height="medium"
+      size="medium"
+    >
+      nixon
+    </div>
+  </div>
+</div>
+`;
