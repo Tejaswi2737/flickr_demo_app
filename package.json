@@ -23,6 +23,7 @@
     ]
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.2",
     "@storybook/addon-storyshots": "^6.4.19",
     "@storybook/react": "^6.4.19",
     "@testing-library/react-hooks": "^7.0.2",
@@ -36,8 +37,10 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-icons": "^4.3.1",
+    "react-redux": "^7.2.6",
     "react-spinners": "^0.11.0",
     "react-test-renderer": "^17.0.2",
+    "redux-mock-store": "^1.5.4",
     "styled-components": "^5.3.3",
     "ts-jest": "^27.1.3"
   },

@@ -31,14 +31,8 @@ const Card = (props) => {
         title,
         dateTaken,
         tags,
-        setvalue,
-        setsearchImages,
-    } = props;
 
-    const handleSearchTag = (content) => {
-        setvalue(content);
-        setsearchImages(true);
-    };
+    } = props;
 
     return (
         <StyledImageCard>
@@ -49,7 +43,6 @@ const Card = (props) => {
                 <Button
                   key={tag}
                   content={tag}
-                  handleClick={handleSearchTag}
                 />
             ))}
         </StyledImageCard>
@@ -63,6 +56,4 @@ Card.propTypes = {
     title: propTypes.string.isRequired,
     dateTaken: propTypes.string.isRequired,
     tags: propTypes.arrayOf(string).isRequired,
-    setvalue: propTypes.func.isRequired,
-    setsearchImages: propTypes.func.isRequired,
 };

@@ -1,13 +1,15 @@
 /* eslint-disable indent */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import axios from 'axios';
 import BeatLoader from 'react-spinners/BeatLoader';
 
+import { useDispatch, useSelector } from 'react-redux';
 import Card from './components/Card';
 import SearchBar from './features/SearchBar';
 import { calenderConfig, formatAuthorName, getTags } from './helpers';
 import { BACKGROUND_COLOR, COLORS } from './theme';
+import { getImagesListAsync, isFetchingImages, showimages } from './searchSlice';
+import Text from './features/Text';
 
 const CardStackStyles = styled.div(() => ({
   display: 'flex',
@@ -37,32 +39,21 @@ const override = css`
 `;
 
 function App() {
-  const [value, setvalue] = useState('himalayas');
-  const [searchImages, setsearchImages] = useState(true);
-  const [images, setimages] = useState([]);
-  const CORS_URL = 'https://getByCors.herokuapp.com/';
-  const BASE_URL = 'https://api.flickr.com/services/feeds/photos_public.gne?';
+    const dispatch = useDispatch();
+    const images = useSelector(showimages);
+    const isFetching = useSelector(isFetchingImages);
 
-  useEffect(() => {
-    setimages([]);
-    if (searchImages) {
-      axios.get(`${CORS_URL}${BASE_URL}tags=${value}&format=json&nojsoncallback=true`).then((response) => {
-        setimages(response.data);
-      });
-    }
-    setsearchImages(false);
-  }, [searchImages]);
+    useEffect(() => {
+      dispatch(getImagesListAsync('Himalayas'));
+    }, []);
 
     return (
       <AppStyles>
-        <SearchBar
-          value={value}
-          setvalue={setvalue}
-          setsearchImages={setsearchImages}
-        />
-        {images && images.items?.length > 0 ? (
-          <CardStackStyles>
-            { images.items.map((item) => {
+        <SearchBar />
+        {!isFetching && (
+          images && images.items?.length > 0 ? (
+            <CardStackStyles>
+              { images.items.map((item) => {
                 const {
                     media,
                     date_taken: dateTaken,
@@ -77,15 +68,14 @@ function App() {
                     title={formatAuthorName(author)}
                     dateTaken={calenderConfig(dateTaken)}
                     tags={getTags(tags)}
-                    setvalue={setvalue}
-                    setsearchImages={setsearchImages}
                   />
                 );
             })}
-          </CardStackStyles>
-        ) : (
-          <BeatLoader color={COLORS.light} loading css={override} />
-        )}
+            </CardStackStyles>
+        ) : <Text content="No images found, please try another tag" />)}
+
+        {isFetching && <BeatLoader color={COLORS.light} loading css={override} />}
+
       </AppStyles>
   );
 }

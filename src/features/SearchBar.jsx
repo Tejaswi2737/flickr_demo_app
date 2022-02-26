@@ -1,8 +1,13 @@
 /* eslint-disable indent */
 /* eslint-disable react/jsx-closing-tag-location */
-import propTypes from 'prop-types';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import {
+    getImagesListAsync,
+    setSearchWord,
+    showsearchValue,
+} from '../searchSlice';
 import {
     COLORS, FONT_SIZES, FONT_WEIGHTS, LINE_HEIGHTS,
 } from '../theme';
@@ -34,26 +39,27 @@ const SearchBarStyled = styled.input(() => ({
     },
 }));
 
-function SearchBar({ value, setvalue, setsearchImages }) {
+function SearchBar() {
+    const searchTag = (useSelector(showsearchValue));
+    const dispatch = useDispatch();
+
+    const handleWordChange = (value) => {
+        dispatch(setSearchWord(value));
+    };
+
     const handleSearch = (e) => {
         if (e.key === 'Enter') {
-            setsearchImages(true);
+            dispatch(getImagesListAsync(e.target.value));
         }
     };
 
     return (
       <SearchBarStyled
-        onChange={(e) => setvalue(e.target.value)}
+        onChange={(e) => handleWordChange(e.target.value)}
         onKeyPress={(e) => handleSearch(e)}
-        value={value}
+        value={searchTag}
       />
     );
 }
 
-export default SearchBar;
-
-SearchBar.propTypes = {
-    value: propTypes.string.isRequired,
-    setvalue: propTypes.func.isRequired,
-    setsearchImages: propTypes.func.isRequired,
-};
+export default React.memo(SearchBar);

@@ -2,7 +2,9 @@
 /* eslint-disable react/jsx-indent */
 import propTypes from 'prop-types';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { getImagesListAsync } from '../searchSlice';
 import {
     BACKGROUND_COLOR, BORDER_RADIUS,
 } from '../theme';
@@ -18,10 +20,12 @@ const StyledButton = styled.div(() => ({
     overflow: 'hidden',
 }));
 
-function Button({ content, handleClick }) {
+function Button({ content }) {
+    const dispatch = useDispatch();
+
     return (
         <StyledButton
-            onClick={() => handleClick(content)}
+            onClick={() => dispatch(getImagesListAsync(content))}
         >
             <Text content={content} color="darker" weight="semiBold" />
         </StyledButton>
@@ -32,5 +36,4 @@ export default React.memo(Button);
 
 Button.propTypes = {
     content: propTypes.string.isRequired,
-    handleClick: propTypes.func.isRequired,
 };

@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
+// eslint-disable-next-line func-names
 module.exports = function (_env, argv) {
     const isProduction = argv.mode === 'production';
     const isDevelopment = !isProduction;
@@ -63,6 +64,9 @@ module.exports = function (_env, argv) {
         },
         resolve: {
             extensions: ['.js', '.jsx'],
+            alias: {
+                'react-redux': require.resolve('react-redux'),
+            },
         },
         plugins: [
             isProduction

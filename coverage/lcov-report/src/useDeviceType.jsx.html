@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.53% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/12</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -95,29 +95,29 @@
 <a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -129,22 +129,22 @@ const useDeviceType = () =&gt; {
         width: window.innerWidth,
     });
 &nbsp;
-    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
-        function <span class="fstat-no" title="function not covered" >handleResize(</span>) {
-<span class="cstat-no" title="statement not covered" >            setWindowSize({</span>
+    useEffect(() =&gt; {
+        function handleResize() {
+            setWindowSize({
                 width: window.innerWidth,
             });
         }
-<span class="cstat-no" title="statement not covered" >        window.addEventListener('resize', handleResize);</span>
-<span class="cstat-no" title="statement not covered" >        handleResize();</span>
-<span class="cstat-no" title="statement not covered" >        return <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >window.removeEventListener('resize', handleResize);</span></span>
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () =&gt; window.removeEventListener('resize', handleResize);
     }, []);
 &nbsp;
     const isDesktop = windowSize.width &gt; DEVICE_SIZES.TABLET;
     const isMobile = windowSize.width &lt; DEVICE_SIZES.MOBILE;
     const isLargeDesktop = windowSize.width &gt; DEVICE_SIZES.DESKTOP;
     // eslint-disable-next-line no-nested-ternary
-    const DEVICE_TYPE = isLargeDesktop ? <span class="branch-0 cbranch-no" title="branch not covered" >'LARGE_DESKTOP' </span>: isDesktop ? 'DESKTOP' : <span class="branch-1 cbranch-no" title="branch not covered" >isMobile ? 'MOBILE' : 'TABLET';</span>
+    const DEVICE_TYPE = isLargeDesktop ? 'LARGE_DESKTOP' : isDesktop ? 'DESKTOP' : isMobile ? 'MOBILE' : 'TABLET';
 &nbsp;
     return DEVICE_TYPE;
 };
@@ -157,7 +157,7 @@ export default useDeviceType;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sat Feb 26 2022 22:52:07 GMT+1100 (Australian Eastern Daylight Time)
+                at Sun Feb 27 2022 03:34:56 GMT+1100 (Australian Eastern Daylight Time)
             </div>
         <script src="../prettify.js"></script>
         <script>
