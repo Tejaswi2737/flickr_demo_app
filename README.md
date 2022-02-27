@@ -1,5 +1,5 @@
 # Getting Started with Flick demo app
-[Live verion](https://d2ot71redzuh0e.cloudfront.net/) 
+[Live version](https://d2ot71redzuh0e.cloudfront.net/) 
 Webpack configuration is forked from [webpack-react](https://github.com/mpontus/webpack-react).
 
 ## Available Scripts
