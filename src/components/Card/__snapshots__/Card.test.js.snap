@@ -2,7 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="sc-hKwDye eRTjdz"
+  className="sc-hKwDye iYAYmA"
 >
   <a
     alt=""
@@ -12,7 +12,7 @@ exports[`renders correctly 1`] = `
   >
     <img
       alt="imgUrl"
-      className="sc-dkPtRN kqsQTu"
+      className="sc-dkPtRN ijpFyi"
       src="https://live.staticflickr.com/65535/51902520893_a1886b3020_m.jpg"
     />
   </a>

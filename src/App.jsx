@@ -2,14 +2,15 @@
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import BeatLoader from 'react-spinners/BeatLoader';
-
 import { useDispatch, useSelector } from 'react-redux';
-import Card from './components/Card';
-import SearchBar from './features/SearchBar';
+
+import Card from './components/Card/Card';
+import SearchBar from './components/SearchBar/SearchBar';
+import Text from './features/Text/Text';
+
 import { calenderConfig, formatAuthorName, getTags } from './helpers';
 import { BACKGROUND_COLOR, COLORS } from './theme';
 import { getImagesListAsync, isFetchingImages, showimages } from './searchSlice';
-import Text from './features/Text';
 
 const CardStackStyles = styled.div(() => ({
   display: 'flex',

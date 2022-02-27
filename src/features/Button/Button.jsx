@@ -4,11 +4,11 @@ import propTypes from 'prop-types';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { getImagesListAsync } from '../searchSlice';
+import { getImagesListAsync } from '../../searchSlice';
 import {
     BACKGROUND_COLOR, BORDER_RADIUS,
-} from '../theme';
-import Text from './Text';
+} from '../../theme';
+import Text from '../Text/Text';
 
 const StyledButton = styled.div(() => ({
     backgroundColor: BACKGROUND_COLOR.green,

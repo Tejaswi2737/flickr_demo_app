@@ -9,7 +9,7 @@ import {
     FONT_SIZES,
     FONT_WEIGHTS,
     LINE_HEIGHTS,
-} from '../theme';
+} from '../../theme';
 
 const StyledText = styled.div(({
     weight, size, height, color,

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
 
-import Card from '../components/Card';
+import Card from './Card';
 
 export default {
     title: 'Example/Card',

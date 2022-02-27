@@ -3,24 +3,31 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { MdOutlineImageSearch } from 'react-icons/md';
 import {
     getImagesListAsync,
     setSearchWord,
     showsearchValue,
-} from '../searchSlice';
+} from '../../searchSlice';
 import {
     COLORS, FONT_SIZES, FONT_WEIGHTS, LINE_HEIGHTS,
-} from '../theme';
-import useDeviceType from '../useDeviceType';
+} from '../../theme';
+import useDeviceType from '../../useDeviceType';
 
 const WIDTH = {
     LARGE_DESKTOP: '40%',
     DESKTOP: '40%',
     TABLET: '60%',
-    MOBILE: '80%',
+    MOBILE: '60%',
 };
+const StyledSearchBar = styled.div(() => ({
+    display: 'inline-flex',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+}));
 
-const SearchBarStyled = styled.input(() => ({
+const StyledInput = styled.input(() => ({
     display: 'block',
     width: WIDTH[useDeviceType()],
     justifyContent: 'center',
@@ -29,7 +36,6 @@ const SearchBarStyled = styled.input(() => ({
     borderRadius: '40px',
     border: `2px solid ${COLORS.light}`,
     padding: '10px 40px',
-    margin: 'auto',
     marginBottom: '20px',
     fontSize: FONT_SIZES.mediumMobile,
     fontWeight: FONT_WEIGHTS.bold,
@@ -37,6 +43,7 @@ const SearchBarStyled = styled.input(() => ({
     ':active': {
         border: 'none',
     },
+    overflow: 'visible',
 }));
 
 function SearchBar() {
@@ -54,11 +61,20 @@ function SearchBar() {
     };
 
     return (
-      <SearchBarStyled
-        onChange={(e) => handleWordChange(e.target.value)}
-        onKeyPress={(e) => handleSearch(e)}
-        value={searchTag}
-      />
+      <StyledSearchBar>
+        <StyledInput
+          onChange={(e) => handleWordChange(e.target.value)}
+          onKeyPress={(e) => handleSearch(e)}
+          value={searchTag}
+        />
+        <MdOutlineImageSearch
+          size={30}
+          fill={COLORS.darkest}
+          onClick={() => dispatch(getImagesListAsync(searchTag))}
+          style={{ cursor: 'pointer', margin: '10px 0 0px -50px' }}
+        />
+      </StyledSearchBar>
+
     );
 }
 

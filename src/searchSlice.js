@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-    searchValue: 'Himalayas',
+    searchValue: window.sessionStorage.getItem('searchTag') || 'Himalayas',
     images: [],
     searchError: '',
     isFetchingImages: false,
@@ -20,6 +20,7 @@ export const searchSlice = createSlice({
             state.searchValue = action.payload;
         },
         searchFlickrImages: (state, action) => {
+            window.sessionStorage.setItem('searchTag', action.payload.tag);
             state.isFetchingImages = false;
             state.images = action.payload.images;
         },

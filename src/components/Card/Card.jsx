@@ -4,25 +4,24 @@
 import propTypes, { string } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../features/Button';
-import Image from '../features/Image';
-import Text from '../features/Text';
-import useDeviceType from '../useDeviceType';
+import Button from '../../features/Button/Button';
+import Image from '../../features/Image/Image';
+import Text from '../../features/Text/Text';
+import useDeviceType from '../../useDeviceType';
 
 const WIDTH = {
     LARGE_DESKTOP: '12%',
-    DESKTOP: '22.5%',
-    TABLET: '45%',
-    MOBILE: '100%',
+    DESKTOP: '20%',
+    TABLET: '44%',
+    MOBILE: '96%',
 };
 
 const StyledImageCard = styled.div(() => ({
     width: WIDTH[useDeviceType()],
-    boxShadow: '0 4px 10px 0 rgba(0,0,0,0.1)',
+    boxShadow: '0 4px 10px 0 rgba(0,0,12,0.3)',
     transition: '0.3s',
     borderRadius: '10px',
-    padding: '10px',
-    gap: '15px',
+    padding: '2%',
 }));
 
 const Card = (props) => {

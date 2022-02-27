@@ -9,8 +9,8 @@ const StyledImage = styled.img`
         transition: 0.5s
     }
     width: 100%;
-    min-height: 400px;
-    max-height: 400px;
+    min-height: 350px;
+    max-height: 350px;
     border-radius: 10px;
 `;
 

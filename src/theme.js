@@ -35,6 +35,7 @@ export const FONT_FAMILY = {
 export const FONT_SIZES = {
     small: '14px',
     medium: '16px',
+    large: '24px',
     smallMobile: '14px',
     mediumMobile: '16px',
 };
@@ -42,6 +43,7 @@ export const FONT_SIZES = {
 export const LINE_HEIGHTS = {
     small: '19px',
     medium: '22px',
+    large: '28px',
     smallMobile: '19px',
     mediumMobile: '20px',
 };
@@ -119,6 +121,6 @@ export const MARGINS = {
 
 export const DEVICE_SIZES = {
     MOBILE: 600,
-    TABLET: 900,
+    TABLET: 1200,
     DESKTOP: 1600,
 };

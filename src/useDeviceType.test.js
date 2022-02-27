@@ -23,7 +23,7 @@ describe('useDeviceType', () => {
 
 describe('useDeviceType', () => {
     beforeEach(() => {
-        global.innerWidth = 1200;
+        global.innerWidth = 1400;
     });
     it('should return DESKTOP', () => {
         const { result } = renderHook(() => useDeviceType());
