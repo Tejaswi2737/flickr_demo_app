@@ -10,7 +10,9 @@ import Text from './features/Text/Text';
 
 import { calenderConfig, formatAuthorName, getTags } from './helpers';
 import { BACKGROUND_COLOR, COLORS } from './theme';
-import { getImagesListAsync, isFetchingImages, showimages } from './searchSlice';
+import {
+ getImagesListAsync, isFetchingImages, setLoading, showimages,
+} from './searchSlice';
 
 const CardStackStyles = styled.div(() => ({
   display: 'flex',
@@ -52,6 +54,7 @@ function App() {
     const isFetching = useSelector(isFetchingImages);
 
     useEffect(() => {
+      dispatch(setLoading(true));
       dispatch(getImagesListAsync(window.sessionStorage.getItem('searchTag') || 'Himalayas'));
     }, []);
 

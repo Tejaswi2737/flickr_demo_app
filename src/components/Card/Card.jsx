@@ -15,7 +15,7 @@ const CARD_WIDTH = {
     LARGE_DESKTOP: getCardWidthRatio(6),
     DESKTOP: getCardWidthRatio(4),
     TABLET: getCardWidthRatio(2),
-    MOBILE: getCardWidthRatio(1),
+    MOBILE: '100%',
 };
 
 const StyledImageCard = styled.div(() => ({

@@ -20,6 +20,7 @@ const WIDTH = {
     TABLET: '60%',
     MOBILE: '60%',
 };
+
 const StyledSearchBar = styled.div(() => ({
     display: 'inline-flex',
     width: '100%',
