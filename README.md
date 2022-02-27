@@ -76,5 +76,4 @@ Uploads the build to AWS s3 bucket.
 
 ## `Code structure`
 <img width="190" alt="Structure" src="https://user-images.githubusercontent.com/41263776/155881027-787fa906-2965-4bcd-92c4-a5d1626f16f1.PNG">
-![image](https://user-images.githubusercontent.com/41263776/155905273-dc80f8d6-0529-4069-a081-4709192927ac.png)**
 
