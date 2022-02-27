@@ -30,12 +30,11 @@ const AppStyles = styled.div(() => ({
 }));
 
 const override = css`
-  display: block;
+  display: flex;
   border-color: red;
   justify-content: center;
   width: 100%;
   margin: auto;
-  left: 50%;
   align-items: center;
   top: 40vh;
   position: relative;
@@ -53,8 +52,6 @@ function App() {
     const images = useSelector(showimages);
     const isFetching = useSelector(isFetchingImages);
     const error = useSelector(searchError);
-
-    console.log(JSON.stringify(error));
 
     useEffect(() => {
       dispatch(setLoading(true));
