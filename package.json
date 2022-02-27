@@ -7,6 +7,7 @@
   "proxy": "https://cors-anywhere.herokuapp.com/",
   "scripts": {
     "build": "webpack --mode production",
+    "deploy": "aws s3 sync dist/ s3://flickrdemoapp",
     "start": "webpack-dev-server --mode development",
     "test": "jest",
     "test:coverage": "jest --coverage",
