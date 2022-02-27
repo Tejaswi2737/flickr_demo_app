@@ -2,6 +2,21 @@
 [Live version](https://d2ot71redzuh0e.cloudfront.net/) 
 Webpack configuration is forked from [webpack-react](https://github.com/mpontus/webpack-react).
 
+## `Features`
+
+1.	**Responsive UI  mobile, tablet, desktop, and large screens**
+2.	**Custom useDeviceType hook for screen type detection**
+3.	**State management using redux tool kit, https://redux-toolkit.js.org/**
+4.	**Unit tests for all helpers and redux store**
+5.	**Snapshot testing for features and components**
+6.	**Interactive storybook server**
+7.	**Test coverage**
+8.	**Husky pre-commit hooks runs tests and lint and stops bad/ failed code from entering code base**
+9.	**Styled with styled-components** 
+10.	**Automated deployment with AWS cli setup**
+11.	**Deployed in CloudFront, https://d2ot71redzuh0e.cloudfront.net/**
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -62,19 +77,4 @@ Uploads the build to AWS s3 bucket.
 ## `Code structure`
 <img width="190" alt="Structure" src="https://user-images.githubusercontent.com/41263776/155881027-787fa906-2965-4bcd-92c4-a5d1626f16f1.PNG">
 ![image](https://user-images.githubusercontent.com/41263776/155905273-dc80f8d6-0529-4069-a081-4709192927ac.png)**
-
-## `Features`
-
-1.	**Responsive UI  mobile, tablet, desktop, and large screens**
-2.	**Custom useDeviceType hook for screen type detection**
-3.	**State management using redux tool kit, https://redux-toolkit.js.org/**
-4.	**Unit tests for all helpers and redux store**
-5.	**Snapshot testing for features and components**
-6.	**Interactive storybook server**
-7.	**Test coverage**
-8.	**Husky pre-commit hooks runs tests and lint and stops bad/ failed code from entering code base**
-9.	**Styled with styled-components** 
-10.	**Automated deployment with AWS cli setup**
-11.	**Deployed in CloudFront, https://d2ot71redzuh0e.cloudfront.net/**
-
 
