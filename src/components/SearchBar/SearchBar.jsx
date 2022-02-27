@@ -18,7 +18,7 @@ const WIDTH = {
     LARGE_DESKTOP: '40%',
     DESKTOP: '40%',
     TABLET: '60%',
-    MOBILE: '60%',
+    MOBILE: '80%',
 };
 
 const StyledSearchBar = styled.div(() => ({
@@ -36,7 +36,7 @@ const StyledInput = styled.input(() => ({
     height: '30px',
     borderRadius: '40px',
     border: `2px solid ${COLORS.light}`,
-    padding: '10px 40px',
+    padding: '10px 30px',
     marginBottom: '20px',
     fontSize: FONT_SIZES.mediumMobile,
     fontWeight: FONT_WEIGHTS.bold,
@@ -44,7 +44,7 @@ const StyledInput = styled.input(() => ({
     ':active': {
         border: 'none',
     },
-    overflow: 'visible',
+    flexWrap: 'wrap',
 }));
 
 function SearchBar() {
@@ -72,7 +72,7 @@ function SearchBar() {
           size={30}
           fill={COLORS.darkest}
           onClick={() => dispatch(getImagesListAsync(searchTag))}
-          style={{ cursor: 'pointer', margin: '10px 0 0px -50px' }}
+          style={{ cursor: 'pointer', margin: '10px 0 0px -40px' }}
         />
       </StyledSearchBar>
 

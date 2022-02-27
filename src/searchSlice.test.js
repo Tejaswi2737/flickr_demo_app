@@ -52,7 +52,8 @@ test('sets search word and gets images list', async () => {
     await store.dispatch(getImagesListAsync('Testing'));
 
     expect(axios.get).toHaveBeenCalledWith(`${CORS_URL + BASE_URL}&tags=${'Testing'}`);
-    const { searchValue, images } = store.getState().search;
+    const { searchValue, images, searchError } = store.getState().search;
+    expect(searchError).toBe('');
     expect(searchValue).toBe('Testing');
     expect(images).toBe(imagesResponse.data);
 });
@@ -73,7 +74,7 @@ test('show searchError', async () => {
     const { searchValue, images, searchError } = store.getState().search;
     expect(searchValue).toBe('Tesergegting');
     expect(images).toStrictEqual([]);
-    expect(searchError).toBe(errorResponse.message);
+    expect(searchError).toBe('Something went wrong while fetching images, please try again');
 });
 
 test('set isLoading', () => {

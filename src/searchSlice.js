@@ -20,6 +20,7 @@ export const searchSlice = createSlice({
             state.searchValue = action.payload;
         },
         searchFlickrImages: (state, action) => {
+            state.searchError = '';
             window.sessionStorage.setItem('searchTag', action.payload.tag);
             state.isFetchingImages = false;
             state.images = action.payload.images;
@@ -33,7 +34,8 @@ export const searchSlice = createSlice({
         },
         setError: (state, action) => {
             state.isFetchingImages = false;
-            state.searchError = action.payload;
+            state.searchError = JSON.stringify(action.payload)?.split('{"message":"')[1]?.split('","')[0]
+                || 'Something went wrong while fetching images, please try again';
         },
     },
 });

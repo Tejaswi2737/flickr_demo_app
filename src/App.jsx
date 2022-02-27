@@ -11,7 +11,7 @@ import Text from './features/Text/Text';
 import { calenderConfig, formatAuthorName, getTags } from './helpers';
 import { BACKGROUND_COLOR, COLORS } from './theme';
 import {
- getImagesListAsync, isFetchingImages, setLoading, showimages,
+ getImagesListAsync, isFetchingImages, searchError, setLoading, showimages,
 } from './searchSlice';
 
 const CardStackStyles = styled.div(() => ({
@@ -45,13 +45,16 @@ const StyledTitles = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  margin: 5vh 0
+  margin: 20px 0
 `;
 
 function App() {
     const dispatch = useDispatch();
     const images = useSelector(showimages);
     const isFetching = useSelector(isFetchingImages);
+    const error = useSelector(searchError);
+
+    console.log(JSON.stringify(error));
 
     useEffect(() => {
       dispatch(setLoading(true));
@@ -65,12 +68,12 @@ function App() {
             size="title"
             height="large"
             content="Flickr public feed"
-            color="yellow"
+            color="light"
           />
         </StyledTitles>
 
         <SearchBar />
-        {!isFetching && (
+        {(!isFetching && !error) && (
           images && images.items?.length > 0 ? (
             <CardStackStyles>
               { images.items.map((item) => {
@@ -104,6 +107,17 @@ function App() {
             />
           </StyledTitles>
           ))}
+
+        {!isFetching && error && (
+        <StyledTitles>
+          <Text
+            size="large"
+            height="large"
+            content={error}
+            color="orange"
+          />
+        </StyledTitles>
+        ) }
 
         {isFetching && <BeatLoader color={COLORS.light} loading css={override} />}
 
