@@ -9,15 +9,17 @@ import Image from '../../features/Image/Image';
 import Text from '../../features/Text/Text';
 import useDeviceType from '../../useDeviceType';
 
-const WIDTH = {
-    LARGE_DESKTOP: '12%',
-    DESKTOP: '20%',
-    TABLET: '44%',
-    MOBILE: '96%',
+const getCardWidthRatio = (columns) => `${((((1 - 0.02 * 2 * columns) * (window.innerWidth - 40 - (columns - 1) * 20)) / columns) * 100) / window.innerWidth}%`;
+
+const CARD_WIDTH = {
+    LARGE_DESKTOP: getCardWidthRatio(6),
+    DESKTOP: getCardWidthRatio(4),
+    TABLET: getCardWidthRatio(2),
+    MOBILE: getCardWidthRatio(1),
 };
 
 const StyledImageCard = styled.div(() => ({
-    width: WIDTH[useDeviceType()],
+    width: CARD_WIDTH[useDeviceType()],
     boxShadow: '0 4px 10px 0 rgba(0,0,12,0.3)',
     transition: '0.3s',
     borderRadius: '10px',
@@ -30,12 +32,12 @@ const Card = (props) => {
         title,
         dateTaken,
         tags,
-
+        externalImageLink,
     } = props;
 
     return (
         <StyledImageCard>
-            <Image imgSrc={imgSrc} />
+            <Image imgSrc={imgSrc} externalImageLink={externalImageLink} />
             <Text content={title} />
             <Text content={dateTaken} weight="regular" color="lightest" />
             {tags.map((tag) => (
@@ -55,4 +57,5 @@ Card.propTypes = {
     title: propTypes.string.isRequired,
     dateTaken: propTypes.string.isRequired,
     tags: propTypes.arrayOf(string).isRequired,
+    externalImageLink: propTypes.string.isRequired,
 };

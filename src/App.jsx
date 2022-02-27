@@ -33,10 +33,17 @@ const override = css`
   justify-content: center;
   width: 100%;
   margin: auto;
-  left: 45%;
+  left: 50%;
   align-items: center;
   top: 40vh;
   position: relative;
+`;
+
+const StyledTitles = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 5vh 0
 `;
 
 function App() {
@@ -45,11 +52,20 @@ function App() {
     const isFetching = useSelector(isFetchingImages);
 
     useEffect(() => {
-      dispatch(getImagesListAsync('Himalayas'));
+      dispatch(getImagesListAsync(window.sessionStorage.getItem('searchTag') || 'Himalayas'));
     }, []);
 
     return (
       <AppStyles>
+        <StyledTitles>
+          <Text
+            size="title"
+            height="large"
+            content="Flickr public feed"
+            color="yellow"
+          />
+        </StyledTitles>
+
         <SearchBar />
         {!isFetching && (
           images && images.items?.length > 0 ? (
@@ -60,6 +76,7 @@ function App() {
                     date_taken: dateTaken,
                     author,
                     tags,
+                    link,
                 } = item;
 
                 return (
@@ -69,11 +86,21 @@ function App() {
                     title={formatAuthorName(author)}
                     dateTaken={calenderConfig(dateTaken)}
                     tags={getTags(tags)}
+                    externalImageLink={link}
                   />
                 );
             })}
             </CardStackStyles>
-        ) : <Text content="No images found, please try another tag" />)}
+        ) : (
+          <StyledTitles>
+            <Text
+              size="large"
+              height="large"
+              content="No images found, please try another tag"
+              color="orange"
+            />
+          </StyledTitles>
+          ))}
 
         {isFetching && <BeatLoader color={COLORS.light} loading css={override} />}
 

@@ -14,9 +14,9 @@ const StyledImage = styled.img`
     border-radius: 10px;
 `;
 
-function Image({ imgSrc }) {
+function Image({ imgSrc, externalImageLink }) {
     return (
-        <a href={imgSrc} alt="" target="_blank" rel="noreferrer">
+        <a href={externalImageLink} alt="" target="_blank" rel="noreferrer">
             <StyledImage src={imgSrc} alt="imgUrl" />
         </a>
     );
@@ -26,4 +26,5 @@ export default React.memo(Image);
 
 Image.propTypes = {
     imgSrc: propTypes.string.isRequired,
+    externalImageLink: propTypes.string.isRequired,
 };

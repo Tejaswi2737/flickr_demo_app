@@ -36,6 +36,7 @@ export const FONT_SIZES = {
     small: '14px',
     medium: '16px',
     large: '24px',
+    title: '30px',
     smallMobile: '14px',
     mediumMobile: '16px',
 };

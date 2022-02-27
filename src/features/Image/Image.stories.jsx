@@ -18,4 +18,5 @@ function ImageTemplate(args) {
 export const DefaultImage = ImageTemplate.bind({});
 DefaultImage.args = {
     imgSrc: 'https://live.staticflickr.com/65535/51902520893_a1886b3020_m.jpg',
+    externalImageLink: 'https://www.flickr.com/photos/manhartravels/51902618838/',
 };

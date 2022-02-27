@@ -24,4 +24,5 @@ DefaultCard.args = {
     tags: ['mountain', 'potrait', 'picture', 'nixon'],
     setvalue: () => console.log('setting value'),
     setsearchImages: () => console.log('searching image'),
+    externalImageLink: 'https://www.flickr.com/photos/manhartravels/51902618838/',
 };
