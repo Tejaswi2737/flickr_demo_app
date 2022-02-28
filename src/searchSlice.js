@@ -9,7 +9,7 @@ const initialState = {
     isFetchingImages: false,
 };
 
-export const CORS_URL = 'https://cors-anywhere.herokuapp.com/';
+export const CORS_URL = 'https://getByCors.herokuapp.com/';
 export const BASE_URL = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=true&';
 
 export const searchSlice = createSlice({
